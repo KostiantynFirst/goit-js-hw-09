@@ -5,7 +5,6 @@ const btnStart = document.querySelector('button[data-start]');
 // btnStart.disabled = true;
 btnStart.addEventListener('click', () => {
     timer.start();
-
 })
 
 let deadLine = 0;
@@ -49,28 +48,33 @@ class Timer {
             const deltaTime = deadLine - startTime;
             const time = this.convertMs(deltaTime);
             this.onTick(time);
-            console.log(startTime);
-            console.log(deadLine);
+            
         }, 1000);
 
-        if (deadLine === startTime) {
-            clearInterval(this.intervalId);
-            this.isActive = false;
-            const time = this.convertMs(0)
-            this.onTick(time);
-        }
+        
+       
+        // if (time.seconds <= 0) {
+        //     clearInterval(this.intervalId);
+        // }
 
-        // stop();
-
+        
     }
 
+    
+
     // stop() {
+    //      const startTime = Date.now();
+    //      const deltaTime = deadLine - startTime;
+    //      const time = this.convertMs(deltaTime);
+    //     if (time.seconds <= 0) {
     //         clearInterval(this.intervalId);
     //         this.isActive = false;
-    //         const time = this.convertMs(0)
-    //         this.onTick(time);
-        
+    //         // const time = this.convertMs(0)
+    //         // this.onTick(time);
+    //     }
     // }
+
+
 
     convertMs(ms) {
   // Number of milliseconds per unit of time

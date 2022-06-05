@@ -20,6 +20,7 @@ refs.btnStop.addEventListener('click', () => {
     refs.btnStop.disabled = true;
     refs.btnStart.disabled = false;
     clearInterval(timerId);
+
 })
 
 
