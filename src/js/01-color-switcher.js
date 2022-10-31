@@ -2,7 +2,7 @@
 const buttonStart = document.querySelector('button[data-start]');
 const buttonStop = document.querySelector('button[data-stop]');
 const body = document.querySelector('body');
-let timerId = null;
+let timer = null;
 
 const chageBodyColor = () => {
     body.style.backgroundColor = getRandomHexColor();
@@ -12,7 +12,7 @@ const startSwitcher = () => {
     buttonStart.disabled = true;
     buttonStop.disabled = false;
     chageBodyColor();
-    timerId = setInterval(() => {
+    timer = setInterval(() => {
         chageBodyColor();
         console.log('startSwitcher')
     }, 1000)
@@ -21,7 +21,7 @@ const startSwitcher = () => {
 const stopSwitcher = () => {
     buttonStart.disabled = false;
     buttonStop.disabled = true;
-    clearInterval(timerId);
+    clearInterval(timer);
 }
 
 buttonStart.addEventListener("click", startSwitcher);
