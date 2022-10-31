@@ -16,3 +16,12 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.container {
+  text-align: center;
+}
+
+button {
+  display: inline-block;
+  padding: 5px;
+}
