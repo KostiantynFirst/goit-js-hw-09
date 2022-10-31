@@ -1,5 +1,6 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const secondsRender = document.querySelector('span[data-seconds]');
 const minutesRender = document.querySelector('span[data-minutes]');
@@ -25,7 +26,7 @@ const options = {
     onClose(selectedDates) {
       console.log(selectedDates[0]);
       if (selectedDates[0] <= new Date()) {
-        window.alert("Please choose a date in the future");
+        Notify.failure("Please choose a date in the future");
       } else {
         btnStart.disabled = false;
         deadline = selectedDates[0];
@@ -43,7 +44,7 @@ const timerStart = () => {
     timerId = setInterval(() => {
         time = deadline.getTime() - new Date().getTime();
         totalTime = convertMs(time); 
-        console.log(totalTime);
+        // console.log(totalTime);
 
         secondsRender.textContent = totalTime.seconds;
         minutesRender.textContent = totalTime.minutes;
